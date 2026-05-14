@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }: {
     useEffect(() => {
         const initAuth = async () => {
             try {
-                const res = await axiosClient.post("/auth/refresh");
+                const res: any = await axiosClient.post("/auth/refresh");
                 setAccessToken(res.data.accessToken);
                 dispatch({
                     type: AuthActionType.LOGIN,
