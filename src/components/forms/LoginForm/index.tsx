@@ -19,7 +19,7 @@ const LoginForm = () => {
         handleSubmit,
     } = useForm<LoginFormInputs>();
 
-    const {push} = useRouter();
+    const { push } = useRouter();
     const context = useContext(AuthContext);
     const dispatch = context ? context.dispatch : undefined;
 
@@ -46,7 +46,7 @@ const LoginForm = () => {
         <Card className="p-4 shadow-sm">
             <h3 className="mb-3 text-center">Login</h3>
 
-            <Form onSubmit={handleSubmit((data) => mutation.mutate(data))}>
+            <Form onSubmit={handleSubmit((data: any) => mutation.mutate(data))}>
                 <Form.Group className="mb-3">
                     <Form.Label>Email</Form.Label>
                     <Form.Control
