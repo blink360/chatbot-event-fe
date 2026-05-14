@@ -52,7 +52,6 @@ const ChatPage = () => {
             <Card className="p-3 shadow-sm mb-3">
                 <div className="d-flex justify-content-between">
                     <h4 className="mb-0">Event Assistant Chat</h4>
-                    <Button onClick={() => push('/dashboard')}>Your Events</Button>
                 </div>
             </Card>
 

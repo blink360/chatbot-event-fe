@@ -8,6 +8,7 @@ import {
 } from "@tanstack/react-query";
 
 import { AuthProvider } from "src/global-state/AuthContext";
+import Header from "src/components/common/Header";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ export default function App({
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
+        <Header />
         <Component {...pageProps} />
       </AuthProvider>
     </QueryClientProvider>
