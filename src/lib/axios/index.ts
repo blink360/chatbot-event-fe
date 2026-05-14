@@ -27,7 +27,7 @@ axiosClient.interceptors.response.use(
       originalRequest._retry = true;
 
       try {
-        const res = await axiosClient.post("/auth/refresh");
+        const res: any = await axiosClient.post("/auth/refresh");
 
         const newToken = res.data.accessToken;
 
