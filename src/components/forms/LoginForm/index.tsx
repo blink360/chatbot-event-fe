@@ -25,7 +25,7 @@ const LoginForm = () => {
 
     const mutation = useMutation({
         mutationFn: login,
-        onSuccess: (data) => {
+        onSuccess: (data: any) => {
             setAccessToken(data.accessToken);
             dispatch && dispatch({
                 type: AuthActionType.LOGIN,
