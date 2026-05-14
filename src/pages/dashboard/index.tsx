@@ -2,11 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Button, Card, Spinner } from "react-bootstrap";
 import withProtectedRoute from "src/hoc/withProtectedRoute";
 import { getEvents } from "src/lib/services/eventService";
-import { useRouter } from "next/router";
 import EventCard from "src/components/cards/EventCard";
 
 const Dashboard = () => {
-    const { push } = useRouter();
     const { data, isLoading, isError } = useQuery({
         queryKey: ["events"],
         queryFn: getEvents

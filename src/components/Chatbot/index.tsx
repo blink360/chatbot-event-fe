@@ -4,7 +4,6 @@ import { Form, Button, Spinner, Card } from "react-bootstrap";
 import withProtectedRoute from "src/hoc/withProtectedRoute";
 import ChatMessage from "src/components/ChatMessage";
 import { sendMessage } from "src/lib/services/chatService";
-import { useRouter } from "next/router";
 
 type Message = {
     role: "user" | "assistant";
@@ -17,12 +16,10 @@ const ChatPage = () => {
     const bottomRef = useRef<HTMLDivElement | null>(null);
     const conversationIdRef = useRef<string | null>(null);
 
-    const { push } = useRouter();
-
     const mutation = useMutation({
         mutationFn: sendMessage,
 
-        onSuccess: (data, variables) => {
+        onSuccess: (data: any) => {
             conversationIdRef.current = data.conversationId;
             setMessages((prev) => [
                 ...prev,
