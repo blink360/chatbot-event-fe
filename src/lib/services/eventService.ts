@@ -10,9 +10,7 @@ export interface Event {
   status: string;
 }
 
-export const getEvents = async (): Promise<
-  Event[]
-> => {
-  const res = await axiosClient.get("/event");
-  return res.data;
+export const getEvents = async (): Promise<Event[]> => {
+  const res: any = await axiosClient.get("/event");
+  return res.data as Event[];
 };
