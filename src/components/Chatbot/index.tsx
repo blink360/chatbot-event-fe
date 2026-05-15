@@ -21,13 +21,30 @@ const ChatPage = () => {
 
         onSuccess: (data: any) => {
             conversationIdRef.current = data.conversationId;
+
             setMessages((prev) => [
                 ...prev,
-                { role: "assistant", content: data.reply },
+                {
+                    role: "assistant",
+                    content: data.reply,
+                },
+            ]);
+        },
+
+        onError: (error: any) => {
+            setMessages((prev) => [
+                ...prev,
+                {
+                    role: "assistant",
+                    content:
+                        error?.response?.data?.message ||
+                        error?.message ||
+                        "Something went wrong.",
+                },
             ]);
         },
     });
-
+    
     const handleSend = (e: any) => {
         e.preventDefault();
         if (!input.trim() || mutation.isPending) return;
